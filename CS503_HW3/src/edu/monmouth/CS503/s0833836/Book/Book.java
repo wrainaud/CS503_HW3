@@ -8,25 +8,13 @@ public class Book {
 	public double price;
 	
 	public Book(int numberOfPages, double price, String title, BookTypes bookType) throws BookException {
-		this.numberOfPages = numberOfPages;
-		this.bookType = bookType;
-		this.title = title;
-		this.price = price;
-		
-		if(title == null || title.length()<=0) {
-			throw new BookException(title);
-		}//if
-		
-		if(numberOfPages <= 1) {
-			throw new BookException(numberOfPages);
-		}//if - numberOfPages
-		
-		if(price <= 0) {
-			throw new BookException(price);
-		}//if - numberOfPages
+		setNumberOfPages(numberOfPages);
+		setPrice(price);
+		setTitle(title);
+		setType(bookType);
 		
 	}//Book Constructor
-	
+
 	public void setNumberOfPages(int numberOfPages) throws BookException{
 		if(numberOfPages>1) {
 			this.numberOfPages = numberOfPages;
@@ -65,6 +53,10 @@ public class Book {
 	public double getPrice() {
 		return price;
 	}//getPrice
+	
+	public void setType(BookTypes bookType) {
+		this.bookType = bookType;
+	}
 	
 	public BookTypes getBookType() {
 		return bookType;
